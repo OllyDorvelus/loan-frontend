@@ -37,13 +37,22 @@ export default function BankForm(props: Props): ReactElement {
         setFormData({ ...formData, [name]: value })
     }
 
+    const handleSelectChange = (e) => {
+
+    }
+
     return (
         <div className="form-container">
             <form>
-                <Input type="text" name="phoneNumber" placeholder="sss" value={formData.account_number} onChange={handleChange} required />
+                <Input type="text" name="phoneNumber" value={formData.account_number} onChange={handleChange} required />
                 <Select>
                     {bankNames.map(bankName =>
                         <MenuItem key={bankName.id} value={bankName.id}>{bankName.name}</MenuItem>
+                    )}
+                </Select>
+                <Select>
+                    {bankTypes.map(bankType =>
+                        <MenuItem key={bankType.id} value={bankType.id}>{bankType.type}</MenuItem>
                     )}
                 </Select>
             </form>
